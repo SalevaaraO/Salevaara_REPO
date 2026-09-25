@@ -20,6 +20,11 @@ const Button = (props) => {
 
 const Statistics = (props) => {
   console.log(props)
+  if (props.total == 0) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
   return (
     <div>
       <p>
