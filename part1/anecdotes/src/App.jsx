@@ -32,6 +32,10 @@ const App = () => {
     setSelected(getRandomInt())
   }
 
+  const vote = () => {
+    
+  }
+
   return (
     <div>
       {anecdotes[selected]}
