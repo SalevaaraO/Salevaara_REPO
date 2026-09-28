@@ -40,15 +40,26 @@ const App = () => {
     console.log(copy)
   }
 
-  
+  let best = 0
+
+  for (let i = 0; i < votes.length; i++) {
+    if (votes[i] > votes[best]) {
+      best = i
+    }
+  }
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]} <br />
       has {votes[selected]} votes
       <br />
       <Button onClick={nextAnecdote} text='next anecdote' />
       <Button onClick={voteAnecdote} text='vote' />
+
+      <h1>Anecdote with most votes</h1>
+      {anecdotes[best]} <br />
+      has {votes[best]} votes
     </div>
   )
 }
