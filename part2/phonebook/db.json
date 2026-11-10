@@ -24,6 +24,11 @@
       "name": "tohtori gerhard",
       "number": "0448671923",
       "id": "PdvKBNxG7PY"
+    },
+    {
+      "name": "asdasd",
+      "number": "000101001",
+      "id": "BywqDQMhfds"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
