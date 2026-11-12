@@ -1,6 +1,6 @@
 import Country from './Country'
 
-const Results = ({ countries }) => {
+const Results = ({ countries, onShow }) => {
     if (countries.length > 10) {
         return (
             <p>
@@ -13,7 +13,14 @@ const Results = ({ countries }) => {
         return (
             <ul>
                 {countries.map(country => {
-                    return <li key={country.name.common}>{country.name.common}</li>
+                    return (
+                    <li key={country.name.common}>
+                        {country.name.common}
+                        <button onClick={() => onShow(country.name.common)}>
+                            show
+                        </button>
+                    </li> 
+                    )
                 })}
             </ul>
         )

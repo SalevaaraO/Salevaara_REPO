@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div>
       <Filter filter={filter} onChange={(event) => setFilter(event.target.value)} />
-        <Results countries = {countriesToShow} />
+      <Results countries = {countriesToShow} onShow={(name) => setFilter(name)} />
     </div>
   )
 }
