@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const cors = require('cors')
 
 
 let notes =[
@@ -31,7 +30,7 @@ const requestLogger = (request, response, next) => {
 
 app.use(express.json())
 app.use(requestLogger)
-app.use(cors())
+app.use(express.static('dist'))
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello world</h1>')
@@ -70,7 +69,7 @@ app.post('/api/notes', (request, response) => {
     const body = request.body
 
     if (!body.content) {
-        return response.status(404).json({
+        return response.status(400).json({
             error: "content missing"
         })
     }
