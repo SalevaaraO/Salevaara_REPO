@@ -41,6 +41,48 @@ app.get('/info', (request, response) => {
         `)
 })
 
+app.get('/api/persons/:id', (request, repsonse) => {
+    const id = request.params.id
+    const person = persons.find(person => person.id === id)
+
+    if (person) {
+        repsonse.json(person)
+    } else {
+        repsonse.status(404).end()
+    }
+})
+
+app.delete('/api/persons/:id', (request, response) => {
+    const id = request.params.id
+    persons = persons.filter(person => person.id !== id)
+
+    response.status(204).end()
+})
+
+const generateRandom = () => {
+    return String(Math.floor(Math.random() * 10000))
+}
+
+app.post('/api/persons', (request, response) => {
+    const body = request.body
+
+    if (!body.name || !body.number) {
+        return response.status(400).json({
+            error: "missing information"
+        })
+    }
+
+    const person = {
+        id: generateRandom(),
+        name: body.name,
+        number: body.number
+    }
+
+    persons = persons.concat(person)
+
+    response.json(person)
+})
+
 
 
 const PORT = 3001
