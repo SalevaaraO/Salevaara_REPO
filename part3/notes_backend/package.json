@@ -15,7 +15,8 @@
   "author": "Matti Luukkainen",
   "license": "MIT",
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "mongoose": "^9.12.2"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.15"
